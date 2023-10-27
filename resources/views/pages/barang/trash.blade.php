@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Barang Tables</h5>
-                        <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+                        <p>Ini adalah tampilan soft delete</p>
                         <a href="{{route('barang.index')}}"><button class="btn btn-primary"> Data Barang </button></a>
             
                         <!-- Table with stripped rows -->
@@ -30,6 +30,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID Barang</th>
+                                    <th scope="col">ID Satuan</th>
                                     <th scope="col">Nama Barang</th>
                                     <th scope="col">Jenis Barang</th>
                                     <th scope="col">Harga Barang</th>
@@ -42,7 +43,10 @@
                                 @foreach($barangs as $barang)
                                     <tr>
                                         <th scope="row">{{$barang->idbarang}}</th>
+                                        <td>{{$barang->idsatuan}}</td>
                                         <td>{{$barang->nama}}</td>
+                                        <td>{{$barang->jenis}}</td>
+                                        <td>{{$barang->harga}}</td>
                                         <td>
                                             @if($barang->status == 0)
                                             <h6>Non Aktif</h6>

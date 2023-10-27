@@ -21,7 +21,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Satuan Tables</h5>
-                        <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+                        <p>Ini adalah tampilan utamamu</p>
                         <a href="{{route('satuan.create')}}"><button class="btn btn-primary"> + Tambah</button></a>
                         <a href="{{route('satuan.trash')}}"><button class="btn btn-success"> Sampah </button></a>
             

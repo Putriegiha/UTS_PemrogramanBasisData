@@ -19,19 +19,19 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Role Tables</h5>
-          <p>Silahkan input data sesuai</p>
+          <p>Input sesuai kebutuhanmu</p>
           
           <!-- Table with stripped rows -->
           <form action="{{route('role.store')}}" method="POST">
             @csrf
             <div class="col-12">
-              <label for="inputNanme4" class="form-label">Nama Role</label>
-              <input type="text" class="form-control" id="inputNanme4" name="nama_role">
+              <label for="inputnama_role" class="form-label">Nama Role</label>
+              <input type="text" class="form-control" id="inputnama_role" name="nama_role">
             </div>
             <br>
             <div class="col-12">
-              <label for="inputNanme4" class="form-label">Status</label>
-              <input type="text" class="form-control" id="inputNanme4" name="status">
+              <label for="inputstatus" class="form-label">Status</label>
+              <input type="text" class="form-control" id="inputstatus" name="status">
             </div>
             <br>
             <div class='text-center'>
@@ -51,9 +51,10 @@
   document.addEventListener('DOMContentLoaded',function(){
     var resetbutton = document.querySelector('button[type="reset"]');
     var inputnamaRole = document.querySelector('input[name="nama_role"]');
+    var inputStatus = document.querySelector('input[name="status"]');
 
     resetbutton.addEventListener('click',function(){
-    inputnamaRole.value = '';
+    inputStatus.value = '';
     });
   });
 </script>

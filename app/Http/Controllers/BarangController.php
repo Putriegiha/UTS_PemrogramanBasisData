@@ -85,7 +85,7 @@ class BarangController extends Controller
             'harga' => $request->input('harga'),
             'idsatuan' => $request->input('idsatuan'),
         ]);
-        return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan!');
+        return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui!');
     }
 
     public function destroy($id)

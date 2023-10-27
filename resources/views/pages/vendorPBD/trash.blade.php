@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Vendor Tables</h5>
-                        <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+                        <p>Ini adalah tampilan soft delete</p>
                         <a href="{{route('vendor.index')}}"><button class="btn btn-primary"> Data Vendor </button></a>
                 
                         <!-- Table with stripped rows -->
@@ -42,6 +42,7 @@
                                 <tr>
                                 <th scope="row">{{$vendor->idvendor}}</th>
                                 <td>{{$vendor->nama_vendor}}</td>
+                                <td>{{$vendor->badan_hukum}}</td>
                                 <td>
                                     @if($vendor->status == 0)
                                     <h6>Non Aktif</h6>

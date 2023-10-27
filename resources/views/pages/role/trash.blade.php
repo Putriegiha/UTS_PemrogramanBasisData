@@ -22,7 +22,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Role Tables</h5>
-            <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+            <p>Ini adalah tampilan soft delete</p>
             <a href="{{route('role.index')}}"><button class="btn btn-primary"> Data Role </button></a>
             
             <!-- Table with stripped rows -->

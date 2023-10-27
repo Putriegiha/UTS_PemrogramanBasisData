@@ -19,24 +19,24 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Vendor Tables</h5>
-            <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+            <p>Input sesuai kebutuhanmu</p>
 
             <!-- Table with stripped rows -->
             <form action="{{route('vendor.store')}}" method="POST">
               @csrf
               <div class="col-12">
-                <label for="inputNanme4" class="form-label">Nama Vendor</label>
-                <input type="text" class="form-control" id="inputNanme4" name="nama_vendor">
+                <label for="inputnama_vendor" class="form-label">Nama Vendor</label>
+                <input type="text" class="form-control" id="inputnama_vendor" name="nama_vendor">
               </div>
               <br>
               <div class="col-12">
-                <label for="inputNanme4" class="form-label">Badan Hukum</label>
-                <input type="text" class="form-control" id="inputNanme4" name="badan_hukum">
+                <label for="inputbadan_hukum" class="form-label">Badan Hukum</label>
+                <input type="text" class="form-control" id="inputbadan_hukum" name="badan_hukum">
               </div>
               <br>
               <div class="col-12">
-                <label for="inputNanme4" class="form-label">Status</label>
-                <input type="text" class="form-control" id="inputNanme4" name="status">
+                <label for="inputstatus" class="form-label">Status</label>
+                <input type="text" class="form-control" id="inputstatus" name="status">
               </div>
               <br>
               <div class='text-center'>

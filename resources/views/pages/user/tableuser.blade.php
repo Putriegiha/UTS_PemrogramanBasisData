@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">User Tables</h5>
-                        <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+                        <p>Ini adalah tampilan utamamu</p>
                         <a href="{{route('user.create')}}"><button class="btn btn-primary"> + Tambah </button></a>
                         <a href="{{route('user.trash')}}"><button class="btn btn-success"> Sampah </button></a>
                         
@@ -30,10 +30,12 @@
                         <table class="table datatable">
                             <thead>
                                 <tr>
-                                <th scope="col">Username</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                    <th scope="col">ID User</th>
+                                    <th scope="col">ID Role</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             
@@ -41,7 +43,9 @@
                                 @foreach($users as $user)
                                 <tr>
                                 <th scope="row">{{$user->iduser}}</th>
+                                <td>{{$user->idrole}}</td>
                                 <td>{{$user->username}}</td>
+                                <td>{{$user->password}}</td>
                                 <td>
                                     @if($user->status == 1)
                                         <h6>Aktif</h6>

@@ -19,29 +19,34 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Barang Tables</h5>
-                    <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+                    <p>Input sesuai kebutuhanmu</p>
                     
                     <!-- Table with stripped rows -->
                     <form action="{{route('barang.store')}}" method="POST">
                         @csrf
                         <div class="col-12">
-                            <label for="inputNanme4" class="form-label">Nama Barang</label>
+                            <label for="inputnama" class="form-label">Nama Barang</label>
                             <input type="text" class="form-control" id="inputNanme4" name="nama">
                         </div>
                         <br>
                         <div class="col-12">
-                            <label for="inputNanme4" class="form-label">Jenis Barang</label>
+                            <label for="inputjenis" class="form-label">Jenis Barang</label>
                             <input type="text" class="form-control" id="inputNanme4" name="jenis">
                         </div>
                         <br>
                         <div class="col-12">
-                            <label for="inputNanme4" class="form-label">Harga Barang</label>
+                            <label for="inputharga" class="form-label">Harga Barang</label>
                             <input type="text" class="form-control" id="inputNanme4" name="harga">
                         </div>
                         <br>
                         <div class="col-12">
-                            <label for="inputNanme4" class="form-label">Status Barang</label>
+                            <label for="inputstatus" class="form-label">Status Barang</label>
                             <input type="text" class="form-control" id="inputNanme4" name="status">
+                        </div>
+                        <br>
+                        <div class="col-12">
+                            <label for="inputidsatuan" class="form-label">ID Satuan</label>
+                            <input type="text" class="form-control" id="inputidsatuan" name="idsatuan">
                         </div>
                         <br>
                         <div class='text-center'>
@@ -64,12 +69,13 @@
         var inputjenisBarang = document.querySelector('input[name="jenis"]');
         var inputhargaBarang = document.querySelector('input[name="harga"]');
         var inputstatusBarang = document.querySelector('input[name="status"]');
+        var inputidSatuan = document.querySelector('input[name="idsatuan"]');
 
         resetbutton.addEventListener('click',function(){
         inputnamaBarang.value = '';
         inputjenisBarang.value = '';
         inputhargaBarang.value = '';
-        inputstatusBarang.value = '';
+        inputidSatuan.value = '';
         });
     });
 </script>
