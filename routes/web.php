@@ -22,6 +22,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Register
+Route::get('/register', function () {
+    return view('pages.auth.register');
+});
+
+// Login
+Route::get('/login', function () {
+    return view('pages.auth.login');
+});
 
 // Table Role
 Route::get('/admin/tabelrole', [RoleController::class, 'index'])->name('role.index');

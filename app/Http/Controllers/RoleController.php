@@ -21,9 +21,9 @@ class RoleController extends Controller
     public function trash()
     {
         $roles = DB::table('roles')
-        ->select('*')
-        ->where('status',0)
-        ->get();
+                    ->select('*')
+                    ->where('status',0)
+                    ->get();
         return view('pages.role.trash',['roles'=>$roles]);
     }
     
