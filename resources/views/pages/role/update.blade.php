@@ -27,12 +27,12 @@
             @method('PUT')
             <div class="col-12">
               <label for="inputnama_role" class="form-label">Nama Role</label>
-              <input type="text" class="form-control" id="inputnama_role" name="nama_role" value="{{old('nama_role',$role->nama_role)}}">
+              <input type="text" class="form-control" id="inputnama_role" name="nama_role" placeholder="" value="{{old('nama_role',$role->nama_role)}}">
             </div>
             <br>
             <div class="col-12">
               <label for="inputstatus" class="form-label">Status</label>
-              <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$role->status)}}">
+              <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$role->STATUS)}}">
             </div>
             <br>
             <div class='text-center'>
@@ -47,4 +47,16 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var resetbutton = document.querySelector('button[type="reset"]');
+    var inputnamaRole = document.querySelector('input[name="nama_role"]');
+    var inputStatus = document.querySelector('input[name="status"]');
+
+    resetbutton.addEventListener('click',function(){
+    inputStatus.value = '';
+    });
+  });
+</script>
 @endsection

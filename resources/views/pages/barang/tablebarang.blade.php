@@ -49,7 +49,7 @@
                   <td>{{$barang->jenis}}</td>
                   <td>{{$barang->harga}}</td>
                   <td>
-                    @if($barang->status == 1)
+                    @if($barang->STATUS == 1)
                     <h6>Aktif</h6>
                     @endif 
                   </td>

@@ -32,7 +32,7 @@
                         <br>
                         <div class="col-12">
                             <label for="inputstatus" class="form-label">Status Satuan</label>
-                            <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$satuan->status)}}">
+                            <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$satuan->STATUS)}}">
                         </div>
                         <br>
                         <div class='text-center'>

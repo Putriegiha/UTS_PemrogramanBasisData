@@ -48,7 +48,7 @@
                                         <td>{{$barang->jenis}}</td>
                                         <td>{{$barang->harga}}</td>
                                         <td>
-                                            @if($barang->status == 0)
+                                            @if($barang->STATUS == 0)
                                             <h6>Non Aktif</h6>
                                             @endif 
                                         </td>

@@ -26,12 +26,12 @@
             @csrf
             <div class="col-12">
               <label for="inputnama_role" class="form-label">Nama Role</label>
-              <input type="text" class="form-control" id="inputnama_role" name="nama_role">
+              <input type="text" class="form-control" id="inputnama_role" name="nama_role" placeholder="cont. Admin atau Kasir">
             </div>
             <br>
             <div class="col-12">
               <label for="inputstatus" class="form-label">Status</label>
-              <input type="text" class="form-control" id="inputstatus" name="status">
+              <input type="text" class="form-control" id="inputstatus" name="status" placeholder="cont. (1 = aktif) atau (0 = no aktif)">
             </div>
             <br>
             <div class='text-center'>
