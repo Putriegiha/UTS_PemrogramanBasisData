@@ -20,7 +20,7 @@ class BarangController extends Controller
                     ->select('*')
                     ->where('status',1)
                     ->get();
-        return view('pages.barang.tablebarang',['barangs'=>$barangs]);
+        return view('admin.pages.barang.tablebarang',['barangs'=>$barangs]);
     }
 
     public function trash()
@@ -29,12 +29,12 @@ class BarangController extends Controller
                     ->select('*')
                     ->where('status',0)
                     ->get();
-        return view('pages.barang.trash',['barangs'=>$barangs]);
+        return view('admin.pages.barang.trash',['barangs'=>$barangs]);
     }
 
     public function create()
     {
-        return view('pages.barang.create');
+        return view('admin.pages.barang.create');
     }
 
     public function store(Request $request)
@@ -59,13 +59,13 @@ class BarangController extends Controller
     public function show($id)
     {
         $barang = DB::table('barangs')->where('idbarang',$id);
-        return view('pages.barang.tablebarang', compact('barang'));
+        return view('admin.pages.barang.tablebarang', compact('barang'));
     }
     
     public function edit($id)
     {
         $barang = DB::table('barangs')->where('idbarang',$id)->first();
-        return view('pages.barang.update',['barang'=>$barang]);
+        return view('admin.pages.barang.update',['barang'=>$barang]);
     }
 
     public function update(Request $request, $id)

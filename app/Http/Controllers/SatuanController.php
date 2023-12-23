@@ -15,7 +15,7 @@ class SatuanController extends Controller
                     ->select('*')
                     ->where('status',1)
                     ->get();
-        return view('pages.satuan.tablesatuan', ['satuans'=>$satuans]);
+        return view('admin.pages.satuan.tablesatuan', ['satuans'=>$satuans]);
     }
 
     public function trash()
@@ -24,12 +24,12 @@ class SatuanController extends Controller
                     ->select('*')
                     ->where('status',0)
                     ->get();
-        return view('pages.satuan.trash',['satuans'=>$satuans]);
+        return view('admin.pages.satuan.trash',['satuans'=>$satuans]);
     }
     
     public function create()
     {
-        return view('pages.satuan.create');
+        return view('admin.pages.satuan.create');
     }
 
     public function store(Request $request)
@@ -48,13 +48,13 @@ class SatuanController extends Controller
     public function show($id)
     {
         $satuan = DB::table('satuans')->where('idsatuan',$id);
-        return view('pages.satuan.tablesatuan', compact('satuan'));
+        return view('admin.pages.satuan.tablesatuan', compact('satuan'));
     }
 
     public function edit($id)
     {
         $satuan = DB::table('satuans')->where('idsatuan',$id)->first();
-        return view('pages.satuan.update',['satuan'=>$satuan]);
+        return view('admin.pages.satuan.update',['satuan'=>$satuan]);
     }
 
     public function update(Request $request, $id)

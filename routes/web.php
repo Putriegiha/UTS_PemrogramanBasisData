@@ -19,19 +19,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.pages.login');
 });
 
 // Register
 Route::get('/register', function () {
-    return view('pages.auth.register');
+    return view('auth.pages.register');
 });
 
-// Login
-Route::get('/login', function () {
-    return view('pages.auth.login');
+// ----- KASiR START -----
+// Dashboard
+Route::get('/dashboard', function () {
+    return view('kasir.pages.MenuUtama.dashboard');
 });
 
+// Kartu Stock
+Route::get('/kartu_stok', function () {
+    return view('kasir.pages.kartu_stok.kartustok');
+});
+
+
+
+// ----- ADMIN START -----
 // Table Role
 Route::get('/admin/tabelrole', [RoleController::class, 'index'])->name('role.index');
 Route::get('/admin/roles/create', [RoleController::class, 'create'])->name('role.create');
@@ -86,3 +95,4 @@ Route::put('/admin/editb/{id}', [BarangController::class, 'update'])->name('bara
 Route::delete('/admin/barangs/{id}/delete', [BarangController::class, 'destroy'])->name('barang.delete');
 Route::get('/admin/barang/trash', [BarangController::class,'trash'])->name('barang.trash');
 Route::put('/admin/barang/restore/{id}', [BarangController::class,'restore'])->name('barang.restore');
+// ----- ADMIN END

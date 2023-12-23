@@ -15,7 +15,7 @@ class VendorController extends Controller
                     ->select('*')
                     ->where('status',1)
                     ->get();
-        return view('pages.vendorPBD.tablevendor', ['vendors'=>$vendors]);
+        return view('admin.pages.vendorPBD.tablevendor', ['vendors'=>$vendors]);
     }
 
     public function trash()
@@ -24,12 +24,12 @@ class VendorController extends Controller
                     ->select('*')
                     ->where('status',0)
                     ->get();
-        return view('pages.vendorPBD.trash',['vendors'=>$vendors]);
+        return view('admin.pages.vendorPBD.trash',['vendors'=>$vendors]);
     }
 
     public function create()
     {
-        return view('pages.vendorPBD.create');
+        return view('admin.pages.vendorPBD.create');
     }
 
     public function store(Request $request)
@@ -50,13 +50,13 @@ class VendorController extends Controller
     public function show($id)
     {
         $vendor = DB::table('vendors')->where('idvendor',$id);
-        return view('pages.vendorPBD.tablevendor', compact('vendor'));
+        return view('admin.pages.vendorPBD.tablevendor', compact('vendor'));
     }
 
     public function edit($id)
     {
         $vendor = DB::table('vendors')->where('idvendor',$id)->first();
-        return view('pages.vendorPBD.update',['vendor'=>$vendor]);
+        return view('admin.pages.vendorPBD.update',['vendor'=>$vendor]);
     }
 
     public function update(Request $request, $id)

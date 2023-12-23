@@ -16,7 +16,7 @@ class UserController extends Controller
                 ->select('*')
                 ->where('status',1)
                 ->get();
-        return view('pages.user.tableuser', ['users'=>$users]);
+        return view('admin.pages.user.tableuser', ['users'=>$users]);
     }
 
     public function trash()
@@ -25,12 +25,12 @@ class UserController extends Controller
                     ->select('*')
                     ->where('status',0)
                     ->get();
-        return view('pages.user.trash',['users'=>$users]);
+        return view('admin.pages.user.trash',['users'=>$users]);
     }
 
     public function create()
     {
-        return view('pages.user.create');
+        return view('admin.pages.user.create');
     }
     
     public function store(Request $request)
@@ -53,13 +53,13 @@ class UserController extends Controller
     public function show($id)
     {
         $user = DB::table('users')->where('iduser',$id);
-        return view('pages.user.tableuser', compact('user'));
+        return view('admin.pages.user.tableuser', compact('user'));
     }
 
     public function edit($id)
     {
         $user = DB::table('users')->where('iduser',$id)->first();
-        return view('pages.user.update',['user'=>$user]);
+        return view('admin.pages.user.update',['user'=>$user]);
     }
 
     public function update(Request $request, $id)

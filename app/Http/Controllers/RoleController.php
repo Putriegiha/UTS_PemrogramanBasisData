@@ -15,7 +15,7 @@ class RoleController extends Controller
                     ->select('*')
                     ->where('status',1)
                     ->get();
-        return view('pages.role.tablerole',['roles'=>$roles]);
+        return view('admin.pages.role.tablerole',['roles'=>$roles]);
     }
 
     public function trash()
@@ -24,12 +24,12 @@ class RoleController extends Controller
                     ->select('*')
                     ->where('status',0)
                     ->get();
-        return view('pages.role.trash',['roles'=>$roles]);
+        return view('admin.pages.role.trash',['roles'=>$roles]);
     }
     
     public function create()
     {
-        return view('pages.role.create');
+        return view('admin.pages.role.create');
     }
 
     public function store(Request $request)
@@ -48,13 +48,13 @@ class RoleController extends Controller
     public function show($id)
     {
         $role = DB::table('roles')->where('idrole',$id);
-        return view('pages.role.tablerole', compact('role'));
+        return view('admin.pages.role.tablerole', compact('role'));
     }
     
     public function edit($id)
     {
         $role = DB::table('roles')->where('idrole',$id)->first();
-        return view('pages.role.update',['role'=>$role]);
+        return view('admin.pages.role.update',['role'=>$role]);
     }
     
     public function update(Request $request, $id)
