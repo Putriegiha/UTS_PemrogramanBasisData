@@ -52,11 +52,11 @@
                                 </td>
                                 
                                 <td>
-                                <a href="{{route('user.edit',$user->iduser)}}"> <button type="submit" class="btn btn-success">Edit</button></a>
+                                <a href="{{route('user.edit',$user->iduser)}}"> <button type="submit" class="btn btn-success"><i class="bi bi-pencil-square"></i></button></a>
                                 <form action="{{route('user.delete',$user->iduser)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit" onclick= "return confirm('Apakah Anda yakin menghapus data ?')">Hapus</button>
+                                    <button class="btn btn-danger" type="submit" onclick= "return confirm('Apakah Anda yakin menghapus data ?')"><i class="bi bi-trash3-fill"></i></button>
                                 </form>
                                 </td>
                                 </tr>

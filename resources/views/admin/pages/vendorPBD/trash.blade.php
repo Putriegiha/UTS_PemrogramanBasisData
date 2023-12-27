@@ -52,7 +52,7 @@
                                     <form action="{{route('vendor.restore',$vendor->idvendor)}}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <button class="btn btn-success" type="submit" onclick= "return confirm('Apakah Anda yakin mengembalikan data ?')">Pulihkan</button>
+                                        <button class="btn btn-success" type="submit" onclick= "return confirm('Apakah Anda yakin mengembalikan data ?')"><i class="bi bi-arrow-clockwise"></i></button>
                                     </form>
                                 </td>
                                 </tr>

@@ -48,11 +48,11 @@
                   </td>
                   
                   <td>
-                    <a href="{{route('role.edit',$role->idrole)}}"> <button type="submit" class="btn btn-success">Edit</button></a>
+                    <a href="{{route('role.edit',$role->idrole)}}"> <button type="submit" class="btn btn-success"><i class="bi bi-pencil-square"></i></button></a>
                     <form action="{{route('role.delete',$role->idrole)}}" method="POST">
                       @csrf
                       @method('DELETE')
-                      <button class="btn btn-danger" type="submit" onclick= "return confirm('Apakah Anda yakin menghapus data ?')">Delete</button>
+                      <button class="btn btn-danger" type="submit" onclick= "return confirm('Apakah Anda yakin menghapus data ?')"><i class="bi bi-trash3-fill"></i></button>
                     </form>
                   </td>
                 </tr>
