@@ -7,7 +7,7 @@ definer_user=root
 definer_host=localhost
 suid=2
 with_check_option=0
-timestamp=0001703134535579527
+timestamp=0001703139118163940
 create-version=2
 source=SELECT p.idpenjualan, p.created_at, p.subtotal_nilai, p.ppn, p.total_nilai,\n       dp.iddetail_penjualan, dp.harga_satuan, dp.jumlah, dp.subtotal,\n       b.idbarang, b.jenis, b.nama AS nama_barang\nFROM penjualans p\nJOIN detail_penjualans dp ON p.idpenjualan = dp.idpenjualan\nJOIN barangs b ON dp.idbarang = b.idbarang
 client_cs_name=utf8

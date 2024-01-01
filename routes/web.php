@@ -95,4 +95,10 @@ Route::put('/admin/editb/{id}', [BarangController::class, 'update'])->name('bara
 Route::delete('/admin/barangs/{id}/delete', [BarangController::class, 'destroy'])->name('barang.delete');
 Route::get('/admin/barang/trash', [BarangController::class,'trash'])->name('barang.trash');
 Route::put('/admin/barang/restore/{id}', [BarangController::class,'restore'])->name('barang.restore');
+
+// Pengadaan
+Route::get('/pengadaan', function () {
+    return view('admin.pages.pengadaan.tabelpengadaan');
+});
+
 // ----- ADMIN END
