@@ -5,6 +5,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.pages.login');
-});
-
-// Register
-Route::get('/register', function () {
-    return view('auth.pages.register');
-});
+Route::get('/',[LoginController::class,'login'])->name('login');
+Route::get('/register',[RegisterController::class,'register'])->name('register');
+Route::post('/register',[RegisterController::class,'register_post']);
+Route::post('/',[LoginController::class,'login_post']);
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
 // ----- KASiR START -----
 // Dashboard
@@ -98,7 +97,27 @@ Route::put('/admin/barang/restore/{id}', [BarangController::class,'restore'])->n
 
 // Pengadaan
 Route::get('/pengadaan', function () {
+    return view('admin.pages.pengadaan.caribarang');
+});
+Route::get('/tabelpengadaan', function () {
     return view('admin.pages.pengadaan.tabelpengadaan');
 });
+
+// Penerimaan
+Route::get('/penerimaan', function () {
+    return view('admin.pages.penerimaan.caribarang');
+});
+Route::get('/tabelpenerimaan', function () {
+    return view('admin.pages.penerimaan.tabelpenerimaan');
+});
+
+// Retur
+Route::get('/retur', function () {
+    return view('admin.pages.retur.caribarang');
+});
+Route::get('/tabelretur', function () {
+    return view('admin.pages.retur.tabelretur');
+});
+
 
 // ----- ADMIN END

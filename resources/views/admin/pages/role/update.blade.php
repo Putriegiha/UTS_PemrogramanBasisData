@@ -31,7 +31,7 @@
             <br>
             <div class="col-12">
               <label for="inputstatus" class="form-label">Status</label>
-              <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$role->status)}}" placeholder="cont. (1 = aktif) atau (0 = no aktif)">
+              <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$role->STATUS)}}" placeholder="cont. (1 = aktif) atau (0 = no aktif)">
             </div>
             <br>
             <div class='text-center'>

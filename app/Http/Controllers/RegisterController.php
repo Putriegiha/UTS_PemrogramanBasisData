@@ -1,40 +1,70 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\User; // Pastikan Anda menggunakan model User yang sesuai
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
-    public function showRegistrationForm()
-    {
-        return view('pages.auth.register');
+    public function register(){
+        return view('auth.pages.register');
     }
 
-    public function register(Request $request)
-    {
-        // Lakukan validasi data yang dikirim
+    public function register_post(Request $request){
+
         $validatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'username' => 'required|unique:users',
-            'password' => 'required|min:6',
-            'terms' => 'accepted',
-        ]);
+            'username'=>'required|string',
+            'email'=>'required|unique:users,email',
+            'password'=>'required|confirmed',
 
-        // Simpan data pengguna ke dalam database
-        $user = User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'username' => $validatedData['username'],
-            'password' => bcrypt($validatedData['password']),
-        ]);
+        ],
+    [
+        'username.required'=>'Silahkan mengisi Username Anda !',
+        'email.required'=>'Silahkan mengisi Email Anda !',
+        'email.unique'=>'Email Sudah Ada !',
+        'password.required'=>'Silahkan mengisi Password Anda !',
+        'password.confirmed'=>'Password Tidak Sama !'
+    ]);
 
-        // Tambahkan logika untuk login setelah registrasi (opsional)
+        // $role = DB::table('role')->select('id_role')->where('nama_role','admin')->first();
+        $users = DB::table('users')->count();
+        if($users>=1){
+            $query = 'SELECT idrole From roles WHERE upper(nama_role) LIKE upper(?)';
+            $kondisi = ['users'];
+            $roles = DB::select($query,$kondisi);
+            $data = [
+                'idrole'=> $roles[0]->idrole,
+                'username'=> $request->input('username'),
+                'email'=> $request->input('email'),
+                'password'=>bcrypt($request->input('password')),
 
-        // Redirect ke halaman yang diinginkan setelah registrasi berhasil
-        return redirect('/login')->with('success', 'Account created successfully! Please log in.');
+            ];
+        }
+        else{
+            $query = 'SELECT idrole From roles WHERE upper(nama_role) LIKE upper(?)';
+            $kondisi = ['admin'];
+            $roles = DB::select($query,$kondisi);
+            $data = [
+                'idrole'=> $roles[0]->idrole,
+                'username'=> $request->input('username'),
+                'email'=> $request->input('email'),
+                'password'=>bcrypt($request->input('password')),
+
+            ];
+        };
+
+
+    //    $tes= DB::table('user')->insert($data);
+
+    $query =  ' INSERT INTO users(idrole,username,email,password) VALUES (?,?,?,?)';
+    $values = [$data['idrole'],$data['username'],$data['email'],$data['password']];
+    $sql = DB::insert($query,$values);
+      if($sql){
+        return redirect()->route('login')->with('success','Berhasil !');
+      }
+
     }
+
 }

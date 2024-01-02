@@ -42,7 +42,7 @@
                   <th scope="row">{{$role->idrole}}</th>
                   <td>{{$role->nama_role}}</td>
                   <td>
-                    @if($role->status == 1)
+                    @if($role->STATUS == 1)
                     <h6>Aktif</h6>
                     @endif 
                   </td>

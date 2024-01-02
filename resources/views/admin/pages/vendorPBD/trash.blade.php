@@ -43,7 +43,7 @@
                                 <td>{{$vendor->nama_vendor}}</td>
                                 <td>{{$vendor->badan_hukum}}</td>
                                 <td>
-                                    @if($vendor->status == 0)
+                                    @if($vendor->STATUS == 0)
                                     <h6>Non Aktif</h6>
                                     @endif 
                                 </td>

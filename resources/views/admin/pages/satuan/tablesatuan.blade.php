@@ -41,7 +41,7 @@
                                     <th scope="row">{{$satuan->idsatuan}}</th>
                                     <td>{{$satuan->nama_satuan}}</td>
                                     <td>
-                                        @if($satuan->status == 1)
+                                        @if($satuan->STATUS == 1)
                                         <h6>Aktif</h6>
                                         @endif 
                                     </td>

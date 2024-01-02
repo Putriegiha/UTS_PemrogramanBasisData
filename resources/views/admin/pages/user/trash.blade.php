@@ -45,7 +45,7 @@
                             <td>{{$user->username}}</td>
                             <td>{{$user->password}}</td>
                             <td>
-                                @if($user->status == 0)
+                                @if($user->STATUS == 0)
                                     <h6>Non Aktif</h6>
                                 @endif 
                             </td>

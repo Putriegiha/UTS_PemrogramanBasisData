@@ -42,7 +42,7 @@
             <br>
             <div class="col-12">
               <label for="inputstatus" class="form-label">Status Barang</label>
-              <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$barang->status)}}">
+              <input type="text" class="form-control" id="inputstatus" name="status" value="{{old('status',$barang->STATUS)}}">
             </div>
             <br>
             <div class="col-12">
