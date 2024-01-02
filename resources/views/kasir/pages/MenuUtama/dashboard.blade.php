@@ -15,91 +15,68 @@
 
 <section class="section">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title d-flex justify-content-between">
-            Penjualan Kasir
-            <a href="" class="btn btn-warning">Riwayat Penjualan</a>
-          </h5>
-
+          <h5 class="card-title d-flex justify-content-between">Kasir</h5>
+    
           <form action="" method="POST">
             @csrf
-            <div class="row mb-3">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">Penjualan Kasir</label>
-              <div class="col-sm-9">
-                <select class="form-select mb-3" aria-label="Default select example" name="email_type_id" required>
-                    <option value="" disabled selected hidden>Pilih Barang</option>
-                    {{-- @foreach($listEmailType as $d) Foreach data mu d sini --}}
-                        {{-- <option value="ini value dari tabel mu">ini nanti buat tampilan dropdown nya</option> --}}
-                        <option value="">Nama dari value 1</option>
-                        <option value="">Nama dari value 2</option>
-                        <option value="">Nama dari value 3</option>
-                    {{-- @endforeach --}}
-                    {{-- Inputan yang lain menyesuaikan, mau inputan text/dropdown/number/password --}}
-                </select>
-              </div>
+            <div class="mb-3">
+              <label for="inputIDUser" class="form-label">ID User</label>
+              <input type="text" class="form-control" id="inputIDUser" name="userID" required>
             </div>
-            <div class="row mb-3">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">Judul</label>
-              <div class="col-sm-9">
-                <input type="email" class="form-control" id="inputEmail" name="">
-              </div>
+            
+            <div class="mb-3">
+              <label for="selectBarang2" class="form-label">Barang</label>
+              <select class="form-select" aria-label="Default select example" id="selectBarang2" name="email_type_id" required>
+                <option value="" disabled selected hidden>Pilih Barang</option>
+                <option value="">Baju</option>
+                <option value="">Sapu</option>
+                <option value="">Sepatu</option>
+              </select>
             </div>
-            <div class="row mb-3">
-              <label for="inputPassword3" class="col-sm-3 col-form-label">Vendor</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputnama_vendor" name="">
-                {{-- <input type="number" class="form-control" id="inputPassword"> Ini inputan number --}}
-              </div>
+            <div class="mb-3">
+              <label for="inputJumlah" class="form-label">Jumlah</label>
+              <input type="number" class="form-control" id="inputJumlah" name="jumlah">
             </div>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label for="inputEmail5" class="form-label">Barang</label>
-                <input type="text" class="form-control" id="inputEmail5" name="">
-              </div>
-              <div class="col-md-2">
-                <label for="inputEmail5" class="form-label">Jumlah Keluar</label>
-                <input type="number" class="form-control" id="inputEmail5" name="">
-              </div>
-              <div class="col-md-2">
-                <label for="inputEmail5" class="form-label">Stock</label>
-                <input type="number" class="form-control" id="inputEmail5" name="">
-              </div>
-              <div class="col-md-2">
-                <label for="inputEmail5" class="form-label">Satuan</label>
-                <input type="text" class="form-control" id="inputEmail5" name="">
-              </div>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Cari Barang</button>
-                <button type="reset" class="btn btn-success">Masukan Pengeluaran Penjualan</button>
+            <div class="d-flex justify-content-center">
+              <button type="reset" class="btn btn-success">Masukan</button>
             </div>
           </form>
-
           <!-- Add content for the second card here -->
         </div>
       </div>
     </div>
-
-    <div class="col-lg-12">
+    
+    <div class="col-lg-8">
       <div class="card">
         <div class="card-body">
-
-          <!-- Table with stripped rows -->
-          <table class="table datatable">
+          <h5 class="card-title d-flex justify-content-between">Penjualan</h5>
+          <table class="table">
             <thead>
               <tr>
-                <th scope="col">Barang</th>
-                <th scope="col">Sumber Dana</th>
-                <th scope="col">Mutasi Keluar</th>
-                <th scope="col">Satuan</th>
+                <th scope="col">ID Barang</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Harga Satuan</th>
+                <th scope="col">Sub Total</th>
               </tr>
             </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Baju</td>
+                <td>3</td>
+                <td>250000</td>
+                <td>750000</td>
+              </tr>
+            </tbody>
           </table>
-          <!-- End Table with stripped rows -->
-
-        </div>
+          <div class="card-header d-flex flex-column align-items-start">
+            <span class="text-start">PPN: 11%</span>
+            <span class="text-start">Total Pesanan: Rp. 832.500</span>
+          </div>                   
       </div>
     </div>
   </div>

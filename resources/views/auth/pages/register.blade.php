@@ -86,7 +86,7 @@
 
               <div class="credits">
 
-                Designed by <a href="">Rangga Prathama</a>
+                Designed by <a href="">Putri Egi</a>
               </div>
 
             </div>
