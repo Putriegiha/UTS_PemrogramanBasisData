@@ -12,13 +12,16 @@ class PengadaanController extends Controller
 {
     public function index()
     {
-        $detail_pengadaans = DB::table('view_pengadaan_info')->get();
+        $detail_pengadaans = DB::select("SELECT * FROM view_pengadaan_info");
+        // $detail_pengadaans = DB::table('detail_pengadaans')->get();
         $barangs = DB::table('barangs')->get();
         $vendors = DB::table('vendors')->get();
+        $users = DB::table('users')->get();
         return view('admin.pages.pengadaan.tabelpengadaan', [
             'detail_pengadaans' => $detail_pengadaans,
             'barangs' => $barangs,
             'vendors' => $vendors,
+            'users' => $users,
         ]);
     }
 
@@ -26,16 +29,32 @@ class PengadaanController extends Controller
     {
         $idpengadaan = DB::table('pengadaans')->insertGetId([
             'TIMESTAMP' => now(),
-            'users_iduser' => $request->input('users_iduser'),
-            'vendors_idvendor' => $request->input('vendors_idvendor'),
-            'subtotal_nilai' => $request->input('sub_total'),
+            'iduser' => $request->input('users_iduser'),
+            'idvendor' => $request->input('vendors_idvendor'),
+            'subtotal_nilai' => $request->input('subtotal_nilai'),
             'ppn' => $request->input('ppn'),
             'total_nilai' => $request->input('total_nilai'),
             'STATUS' => 0,
         ]);
 
+        $barang = $request->input('barang');
+
+        $hargasatuan = DB::select("SELECT harga FROM barangs WHERE idbarang = $barang");
+
+        $hargasatuan = $hargasatuan[0]->harga;
+
+        $subtotal = $request->input('jumlah_pengadaan') * $hargasatuan;
+
+        $totalnilai = DB::select("SELECT calculate_ppn($subtotal) AS Subtotal");
+        $totalnilai = $totalnilai[0]->Subtotal;
+
+        $query = 'INSERT INTO detail_pengadaans(harga_satuan,jumlah,sub_total,idbarang,idpengadaan) VALUES (?,?,?,?,?)';
+        $values = [$hargasatuan, $request->input('jumlah_pengadaan'), $subtotal, $barang, $idpengadaan];
+        $sql = DB::insert($query, $values);
+
         $detail_pengadaans = DB::select("SELECT * FROM view_pengadaan_info");
-        return response()->json(['success' => true]);
+
+        return redirect()->back();
     }
 
     /**

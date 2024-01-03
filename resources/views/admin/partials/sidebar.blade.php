@@ -43,12 +43,12 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{route('pengadaan.index')}}">
               <i class="bi bi-circle"></i><span>Pengadaan</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{route('penerimaan.index')}}">
               <i class="bi bi-circle"></i><span>Penerimaan</span>
             </a>
           </li>
