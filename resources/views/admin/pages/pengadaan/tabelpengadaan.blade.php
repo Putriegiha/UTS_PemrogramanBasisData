@@ -22,7 +22,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Tabel Pengadaan</h5>
-            <a href="{{route('barang.create')}}"><button class="btn btn-primary"> + Tambah </button></a>
+            <a href="#"><button class="btn btn-primary"> + Tambah </button></a>
             
             <!-- Table with stripped rows -->
             <table class="table datatable">

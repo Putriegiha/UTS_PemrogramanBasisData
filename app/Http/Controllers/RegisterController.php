@@ -32,7 +32,7 @@ class RegisterController extends Controller
         $users = DB::table('users')->count();
         if($users>=1){
             $query = 'SELECT idrole From roles WHERE upper(nama_role) LIKE upper(?)';
-            $kondisi = ['users'];
+            $kondisi = ['user'];
             $roles = DB::select($query,$kondisi);
             $data = [
                 'idrole'=> $roles[0]->idrole,

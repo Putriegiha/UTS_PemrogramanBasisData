@@ -5,6 +5,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\PengadaanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -96,12 +97,8 @@ Route::get('/admin/barang/trash', [BarangController::class,'trash'])->name('bara
 Route::put('/admin/barang/restore/{id}', [BarangController::class,'restore'])->name('barang.restore');
 
 // Pengadaan
-Route::get('/pengadaan', function () {
-    return view('admin.pages.pengadaan.caribarang');
-});
-Route::get('/tabelpengadaan', function () {
-    return view('admin.pages.pengadaan.tabelpengadaan');
-});
+Route::get('/pengadaan', [PengadaanController::class, 'index'])->name('pengadaan.index');
+Route::get('/tabelpengadaan', [PengadaanController::class, 'create'])->name('');
 
 // Penerimaan
 Route::get('/penerimaan', function () {

@@ -4,25 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengadaan;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePengadaanRequest;
-use App\Http\Requests\UpdatePengadaanRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class PengadaanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $detail_pengadaans = DB::table('view_pengadaan_info')->get();
+        $barangs = DB::table('barangs')->get();
+        $vendors = DB::table('vendors')->get();
+        return view('admin.pages.pengadaan.tabelpengadaan', [
+            'detail_pengadaans' => $detail_pengadaans,
+            'barangs' => $barangs,
+            'vendors' => $vendors,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $idpengadaan = DB::table('pengadaans')->insertGetId([
+            'TIMESTAMP' => now(),
+            'users_iduser' => $request->input('users_iduser'),
+            'vendors_idvendor' => $request->input('vendors_idvendor'),
+            'subtotal_nilai' => $request->input('sub_total'),
+            'ppn' => $request->input('ppn'),
+            'total_nilai' => $request->input('total_nilai'),
+            'STATUS' => 0,
+        ]);
+
+        DB::table('detail_pengadaans')->insert([
+            'harga_satuan' => $request->input('harga_satuan'),
+            'jumlah' => $request->input('jumlah'),
+            'sub_total' => $request->input('sub_total'),
+            'idbarang' => $request->input('idbarang'),
+            'idpengadaan' => $idpengadaan,
+        ]);
+
+        return response()->json(['success' => true]);
     }
 
     /**

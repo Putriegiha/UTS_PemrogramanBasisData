@@ -31,15 +31,14 @@ class LoginController extends Controller
     $kondisi = [$infoLogin['email']];
     $validUser = DB::select($query,$kondisi);
 
-
-    if ($validUser && Hash::check($infoLogin['password'], $validUser[0]->PASSWORD) && strtoupper( $validUser[0]->nama_role)=='ADMIN') {
+    if ($validUser && Hash::check($infoLogin['password'], $validUser[0]->PASSWORD) && $validUser[0]->nama_role=='Admin') {
         Auth::loginUsingId($validUser[0]->iduser); // Autentikasi pengguna
         $request->session()->regenerate();
         return redirect()->route('role.index')->with('success', 'Selamat Datang ADMIN!');
     } else {
         Auth::loginUsingId($validUser[0]->iduser); // Autentikasi pengguna
         $request->session()->regenerate();
-        return redirect()->route('kasir.pages.MenuUtama.dashboard')->with('success', 'Selamat Datang Kasir!');
+        return redirect('/dashboard')->with('success', 'Selamat Datang Kasir!');
     }
 }
 
