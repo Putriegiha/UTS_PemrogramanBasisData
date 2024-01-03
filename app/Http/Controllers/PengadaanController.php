@@ -34,14 +34,7 @@ class PengadaanController extends Controller
             'STATUS' => 0,
         ]);
 
-        DB::table('detail_pengadaans')->insert([
-            'harga_satuan' => $request->input('harga_satuan'),
-            'jumlah' => $request->input('jumlah'),
-            'sub_total' => $request->input('sub_total'),
-            'idbarang' => $request->input('idbarang'),
-            'idpengadaan' => $idpengadaan,
-        ]);
-
+        $detail_pengadaans = DB::select("SELECT * FROM view_pengadaan_info");
         return response()->json(['success' => true]);
     }
 
