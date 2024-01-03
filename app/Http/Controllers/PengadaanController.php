@@ -48,7 +48,7 @@ class PengadaanController extends Controller
 
         $hargasatuan = $hargasatuan[0]->harga;
 
-        DB::select('CALL pengadaan_barang(?,?,?,?,?,?)', [$iduser, $idvendor, $barang, $jumlah, $hargasatuan, $ppn]);
+        DB::select('CALL pengadaan(?,?,?,?,?,?)', [$iduser, $idvendor, $barang, $jumlah, $hargasatuan, $ppn]);
 
         // $subtotal = $request->input('jumlah_pengadaan') * $hargasatuan;
 
