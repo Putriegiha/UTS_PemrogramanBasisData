@@ -102,8 +102,7 @@ Route::get('/pengadaan', [PengadaanController::class, 'index'])->name('pengadaan
 Route::post('/create', [PengadaanController::class, 'create'])->name('pengadaan.create');
 
 // Penerimaan
-Route::get('/penerimaan', [PenerimaanController::class, 'index'])->name('penerimaan.index');
-Route::post('/penerimaan', function () {
+Route::get('/penerimaan', function () {
     return view('admin.pages.penerimaan.caribarang');
 });
 Route::get('/tabelpenerimaan', function () {

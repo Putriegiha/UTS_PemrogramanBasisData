@@ -27,33 +27,38 @@ class PengadaanController extends Controller
 
     public function create(Request $request)
     {
-        $idpengadaan = DB::table('pengadaans')->insertGetId([
-            'TIMESTAMP' => now(),
-            'iduser' => $request->input('users_iduser'),
-            'idvendor' => $request->input('vendors_idvendor'),
-            'subtotal_nilai' => $request->input('subtotal_nilai'),
-            'ppn' => $request->input('ppn'),
-            'total_nilai' => $request->input('total_nilai'),
-            'STATUS' => 0,
-        ]);
+        // $idpengadaan = DB::table('pengadaans')->insertGetId([
+        //     'TIMESTAMP' => now(),
+        //     'iduser' => $request->input('users_iduser'),
+        //     'idvendor' => $request->input('vendors_idvendor'),
+        //     'subtotal_nilai' => 1,
+        //     'ppn' => $request->input('ppn'),
+        //     'total_nilai' => 1,
+        //     'STATUS' => 0,
+        // ]);
+
 
         $barang = $request->input('barang');
+        $idvendor = $request->input('vendors_idvendor');
+        $iduser = $request->input('users_iduser');
+        $jumlah = $request->input('jumlah_pengadaan');
+        $ppn = $request->input('ppn');
 
         $hargasatuan = DB::select("SELECT harga FROM barangs WHERE idbarang = $barang");
 
         $hargasatuan = $hargasatuan[0]->harga;
 
-        $subtotal = $request->input('jumlah_pengadaan') * $hargasatuan;
+        DB::select('CALL pengadaan_barang(?,?,?,?,?,?)', [$iduser, $idvendor, $barang, $jumlah, $hargasatuan, $ppn]);
 
-        $totalnilai = DB::select("SELECT calculate_ppn($subtotal) AS Subtotal");
-        $totalnilai = $totalnilai[0]->Subtotal;
+        // $subtotal = $request->input('jumlah_pengadaan') * $hargasatuan;
 
-        $query = 'INSERT INTO detail_pengadaans(harga_satuan,jumlah,sub_total,idbarang,idpengadaan) VALUES (?,?,?,?,?)';
-        $values = [$hargasatuan, $request->input('jumlah_pengadaan'), $subtotal, $barang, $idpengadaan];
-        $sql = DB::insert($query, $values);
+        // $totalnilai = DB::select("SELECT calculate_ppn($subtotal) AS Subtotal");
+        // $totalnilai = $totalnilai[0]->Subtotal;
 
-        $detail_pengadaans = DB::select("SELECT * FROM view_pengadaan_info");
-
+        // $query = 'INSERT INTO detail_pengadaans(harga_satuan,jumlah,sub_total,idbarang,idpengadaan) VALUES (?,?,?,?,?)';
+        // $values = [$hargasatuan, $request->input('jumlah_pengadaan'), $subtotal, $barang, $idpengadaan];
+        // $sql = DB::insert($query, $values);
+        
         return redirect()->back();
     }
 

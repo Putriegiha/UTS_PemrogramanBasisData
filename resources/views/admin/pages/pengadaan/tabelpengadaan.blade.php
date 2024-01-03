@@ -128,7 +128,6 @@
                   <th scope="col">Sub Total</th>
                   <th scope="col">PPN (%)</th>
                   <th scope="col">Total</th>
-                  <th scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -138,6 +137,9 @@
                   <td>{{$detail_pengadaan->tanggal_pengadaan}}</td>
                   <td>{{$detail_pengadaan->user_pengadaan}}</td>
                   <td>{{$detail_pengadaan->nama_vendor}}</td>
+                  <td>{{$detail_pengadaan->nama_barang}}</td>
+                  <td>{{$detail_pengadaan->harga_satuan}}</td>
+                  <td>{{$detail_pengadaan->jumlah}}</td>
                   <td>{{$detail_pengadaan->subtotal_nilai}}</td>
                   <td>{{$detail_pengadaan->ppn}}</td>
                   <td>{{$detail_pengadaan->total_nilai}}</td>

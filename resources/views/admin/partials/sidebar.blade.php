@@ -48,7 +48,7 @@
             </a>
           </li>
           <li>
-            <a href="{{route('penerimaan.index')}}">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Penerimaan</span>
             </a>
           </li>
